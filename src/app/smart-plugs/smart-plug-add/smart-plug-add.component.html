@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8">
+    <form (ngSubmit)="onAdd()" [formGroup]="smartPlugForm">
+      <label class=" col-form-label panel-left-label" for="plugID">New plug:</label>
+      <input class="form-control" id="plugID" type="text" placeholder="please enter an ID..." formControlName="plugID">
+      <hr>
+      <button class=" btn btn-primary" type="submit" name="add">Add</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+  <div class="container">
+    <div class="container-inner-left">
+      <img class="navbar-brand " style="max-height:50px; margin-right:0;" src="../../../assets/img/logo.jpg"
+           alt="logo">
+      <a class="navbar-brand" routerLink="/">SmartPlug</a>
+    </div>
+
+    <div class="container-inner-right" ngbDropdown>
+      <a class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+         aria-expanded="false" aria-label="Toggle navigation" ngbDropdownToggle>
+        <span class="navbar-toggler-icon"></span>
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" ngbDropdownMenu>
+        <ul class="navbar-nav ml-auto">
+          <ng-template [ngIf]="!((authState | async).authenticated)">
+            <li class="nav-item" ngbDropdownItem><a class="nav-link" routerLink="/signin" routerLinkActive="active">Login</a></li>
+            <li class="nav-item" ngbDropdownItem><a class="nav-link" routerLink="/signup" routerLinkActive="active">Register</a></li>
+          </ng-template>
+          <ng-template [ngIf]="((authState | async).authenticated)">
+            <li class="nav-item" ngbDropdownItem><a class="nav-link" routerLink="/smart-plugs" routerLinkActive="active" (click)="fetchSmartPlugs()">My smart plugs</a></li>
+            <li class="nav-item" ngbDropdownItem><a class="nav-link" routerLink="/account" routerLinkActive="active">Manage your account</a></li>
+            <li class="nav-item" ngbDropdownItem><a class="nav-link" (click)="logout()">Logout</a></li>
+          </ng-template>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
