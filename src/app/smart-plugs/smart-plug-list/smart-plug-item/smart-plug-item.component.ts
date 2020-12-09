@@ -9,11 +9,13 @@ import {SmartPlug} from '../../../shared/SmartPlug.model';
 export class SmartPlugItemComponent implements OnInit {
   @Input() smartPlug: SmartPlug;
   @Input() index: number;
+  ledLight: boolean;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.ledLight = this.smartPlug.turnedOn;
   }
 
 }

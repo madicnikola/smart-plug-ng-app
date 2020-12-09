@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {SmartPlugFeatureState, State} from '../store/smart-plug.reducers';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Store} from '@ngrx/store';
-import {FETCH_SMART_PLUGS, FetchSmartPlugs} from '../store/smart-plug.actions';
+import {FetchSmartPlugs} from '../store/smart-plug.actions';
 
 @Component({
   selector: 'app-smart-plug-list',
@@ -26,7 +26,5 @@ export class SmartPlugListComponent implements OnInit {
 
   onNewSmartPlug() {
     this.router.navigate(['new'], {relativeTo: this.route});
-    this.smartPlugState = this.store.select('smartPlugsState');
-
   }
 }

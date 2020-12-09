@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SmartPlugFeatureState} from '../store/smart-plug.reducers';
-import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-smart-plug-add',
@@ -13,8 +11,7 @@ export class SmartPlugAddComponent implements OnInit {
   smartPlugForm: FormGroup;
 
   constructor(private router: Router,
-              private route: ActivatedRoute,
-              private store: Store<SmartPlugFeatureState>) {
+              private route: ActivatedRoute) {
   }
 
   private initForm() {
@@ -34,5 +31,9 @@ export class SmartPlugAddComponent implements OnInit {
 
   onAdd() {
 
+  }
+
+  onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 }

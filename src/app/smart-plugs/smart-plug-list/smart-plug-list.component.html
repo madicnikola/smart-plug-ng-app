@@ -1,13 +1,12 @@
 <div class="row">
   <div class="col-xs-12">
-    <button class="btn btn-success" (click)="onNewSmartPlug()">add new</button>
+    <button class="btn btn-success" (click)="onNewSmartPlug()">New Smartplug</button>
   </div>
-  <hr>
-  <div class="row">
-    <div class="col-xs-12">
-      <app-smart-plug-item *ngFor="let smartPlug of (smartPlugState | async).smartPlugs; let i = index"
-                           [smartPlug]="smartPlug" [index]="i"></app-smart-plug-item>
-    </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12 container">
+    <app-smart-plug-item *ngFor="let smartPlug of (smartPlugState | async).smartPlugs; let i = index"
+                         [smartPlug]="smartPlug" [index]="i"></app-smart-plug-item>
   </div>
-
 </div>

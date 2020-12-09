@@ -4,7 +4,6 @@ import {Router} from '@angular/router';
 import {Actions, Effect, ofType} from '@ngrx/effects';
 import {LOGOUT, SET_TOKEN, SIGNIN, TRY_SIGNIN, TRY_SIGNUP, TrySignin, TrySignup} from './auth.actions';
 import {map, mergeMap, switchMap, tap} from 'rxjs/operators';
-import {strict} from 'assert';
 
 @Injectable()
 export class AuthEffects {

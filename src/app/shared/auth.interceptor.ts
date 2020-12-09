@@ -13,11 +13,11 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('Intercepted!', req);
+    console.log('Intercepted!');
     return this.store.select('auth').pipe(take(1), switchMap((authState: fromAuth.State) => {   // fromAuth state
         let jwtToken = 'Bearer '.concat(authState.token);
         if (authState.authenticated) {
-          const copiedReq = req.clone({headers: req.headers.set('Authorization', jwtToken)});
+          const copiedReq = req.clone({headers: req.headers.set('Authorization', jwtToken).append('Content-Type', 'application/json')});
           console.log(copiedReq);
           return next.handle(copiedReq);
         } else {

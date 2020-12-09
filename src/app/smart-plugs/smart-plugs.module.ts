@@ -5,7 +5,7 @@ import {SmartPlugListComponent} from './smart-plug-list/smart-plug-list.componen
 import {SmartPlugDetailsComponent} from './smart-plug-details/smart-plug-details.component';
 import {SmartPlugEditComponent} from './smart-plug-edit/smart-plug-edit.component';
 import {SmartPlugStartComponent} from './smart-plug-start/smart-plug-start.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SmartPlugsRoutingModule} from './smart-plugs-routing.module';
 import {StoreModule} from '@ngrx/store';
 import {smartPlugReducer} from './store/smart-plug.reducers';
@@ -13,7 +13,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {SmartPlugEffects} from './store/smart-plug.effects';
 import {SmartPlugAddComponent} from './smart-plug-add/smart-plug-add.component';
 import {SmartPlugItemComponent} from './smart-plug-list/smart-plug-item/smart-plug-item.component';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,8 @@ import {SmartPlugItemComponent} from './smart-plug-list/smart-plug-item/smart-pl
     SmartPlugsRoutingModule,
     StoreModule.forFeature('smartPlugsState', smartPlugReducer),
     EffectsModule.forFeature([SmartPlugEffects]),
+    FormsModule,
+    MatSlideToggleModule,
   ]
 })
 export class SmartPlugsModule {

@@ -13,6 +13,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core,module';
+import {UserModule} from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {CoreModule} from './core/core,module';
     BrowserModule,
     CoreModule,
     AuthModule,
+    UserModule,
     AppRoutingModule,
     HttpClientModule,
     SharedModule,

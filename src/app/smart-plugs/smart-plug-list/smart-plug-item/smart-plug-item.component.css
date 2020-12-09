@@ -1,0 +1,66 @@
+.plug-items-list {
+  display: flex !important;
+  margin: 1px;
+}
+
+.plug-item-image, .plug-item-led {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plug-item-image img {
+  max-height: 70px !important;
+}
+
+a.list-group-item.plug-items-list.active, a.list-group-item.plug-items-list:hover {
+  text-decoration: none;
+}
+
+a.list-group-item.plug-items-list.active {
+  color: #fff;
+}
+
+a.list-group-item.plug-items-list {
+  color: #000;
+}
+
+.led-container {
+
+}
+
+.led-box {
+  height: 30px;
+  width: 25%;
+  margin: 10px 0;
+  float: left;
+}
+
+.led-box p {
+  font-size: 12px;
+  text-align: center;
+  margin: 1em;
+}
+
+.led-red {
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+  background-color: #dc3535;
+  /*
+  DC143C
+  dc3535
+  */
+  border-radius: 50%;
+  /*box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px;*/
+}
+
+.led-green {
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+  background-color: #7eb750;
+  border-radius: 50%;
+  /*box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89ff00 0 2px 12px;*/
+}
+
