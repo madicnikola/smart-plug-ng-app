@@ -6,7 +6,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Store} from '@ngrx/store';
 import {take} from 'rxjs/operators';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {ChangePowerState} from '../store/smart-plug.actions';
+import {ChangeName, ChangePowerState, UpdateSmartPlug} from '../store/smart-plug.actions';
 import {MatSlideToggleChange} from '@angular/material/slide-toggle';
 
 @Component({
@@ -19,6 +19,7 @@ export class SmartPlugDetailsComponent implements OnInit {
   @Input() smartPlug: SmartPlug;
   index: number;
   smartPlugForm: FormGroup;
+  refreshed: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -30,15 +31,18 @@ export class SmartPlugDetailsComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.index = +params['id'];
+
         this.smartPlugState = this.store.select('smartPlugsState');
         this.smartPlugState.pipe(take(1)).subscribe(
           value => {
             this.smartPlug = value.smartPlugs[this.index];
           });
+
       }
-    );
+    )
 
     this.initForm();
+
   }
 
   onToggle(event: MatSlideToggleChange) {
@@ -53,6 +57,20 @@ export class SmartPlugDetailsComponent implements OnInit {
       powerSwitch: this.smartPlug.turnedOn,
       // powerState: this.smartPlug.turnedOn
     });
+    this.route.params.subscribe(value => {
+      this.smartPlugForm.get('name').markAsUntouched();
+      this.smartPlugForm.get('name').markAsPristine();
+
+    });
 
   }
+
+  onChangeName() {
+    const smartPlugPayload = {
+      ...this.smartPlug,
+      name: this.smartPlugForm.get('name').value
+    };
+    this.store.dispatch(new UpdateSmartPlug({id: this.smartPlug.id, smartPlug: smartPlugPayload}));
+  }
+
 }

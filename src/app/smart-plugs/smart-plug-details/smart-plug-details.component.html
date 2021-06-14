@@ -1,19 +1,20 @@
-<div class="row">
+<div class="row row-custom">
   <div class="container" style="margin-top: 65px">
     <form class="form-group" [formGroup]="smartPlugForm">
       <label for="name">Name</label>
-      <input class="form-control" id="name" formControlName="name" [value]="(smartPlugState | async).smartPlugs[index].name">
+      <input class="form-control input-custom" id="name" formControlName="name"
+             [value]="(smartPlugState | async).smartPlugs[index].name">
+      <div *ngIf="smartPlugForm.controls['name'].touched || smartPlugForm.controls['name'].dirty" class="btn-edit-custom">
+        <button class="btn-primary" style="cursor: pointer"
+                (click)="onChangeName()">Change
+        </button>
+      </div>
       <hr>
       <span style="margin-bottom:8px; margin-right: 5px">Power </span>
-      <mat-slide-toggle (change)="onToggle($event)" formControlName="powerSwitch" [checked]="(smartPlugState | async).smartPlugs[index].turnedOn">
+      <mat-slide-toggle (change)="onToggle($event)" formControlName="powerSwitch"
+                        [checked]="(smartPlugState | async).smartPlugs[index].turnedOn">
       </mat-slide-toggle>
       <hr>
-      <!--      <input type="text" class="form-control" formControlName="powerState"-->
-      <!--             [ngModel]="(smartPlugState | async).smartPlugs[id].turnedOn">-->
     </form>
   </div>
-
-
 </div>
-<!--    <label class="custom-control-label" for="socketPower">Power:</label>-->
-<!--    <button type="checkbox" class="custom-control-input" id="socketPower"></button>-->

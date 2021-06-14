@@ -3,7 +3,6 @@ import {SharedModule} from '../shared/shared.module';
 import {SmartPlugsComponent} from './smart-plugs.component';
 import {SmartPlugListComponent} from './smart-plug-list/smart-plug-list.component';
 import {SmartPlugDetailsComponent} from './smart-plug-details/smart-plug-details.component';
-import {SmartPlugEditComponent} from './smart-plug-edit/smart-plug-edit.component';
 import {SmartPlugStartComponent} from './smart-plug-start/smart-plug-start.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SmartPlugsRoutingModule} from './smart-plugs-routing.module';
@@ -22,7 +21,6 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     SmartPlugItemComponent,
     SmartPlugAddComponent,
     SmartPlugDetailsComponent,
-    SmartPlugEditComponent,
     SmartPlugStartComponent,
   ],
   imports: [

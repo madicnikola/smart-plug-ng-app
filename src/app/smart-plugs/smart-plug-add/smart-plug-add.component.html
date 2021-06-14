@@ -4,8 +4,10 @@
       <label class=" col-form-label panel-left-label" for="plugID">New plug:</label>
       <input class="form-control" id="plugID" type="text" placeholder="please enter an ID..." formControlName="plugID">
       <hr>
-      <button class=" btn btn-primary" type="submit" name="add">Add</button>
-      <button class=" btn btn-danger" type="button" name="cancel" (click)="onCancel()">Cancel</button>
+      <button class=" btn btn-primary btn-inline" type="submit" name="add" [disabled]="!smartPlugForm.valid">Add
+      </button>
+      <button class=" btn btn-danger btn-inline" type="button" name="cancel" (click)="onCancel()">Cancel</button>
+      <span *ngIf="smartPlugForm.hasError('plugID')">{{errorMessage}}</span>
     </form>
   </div>
 </div>

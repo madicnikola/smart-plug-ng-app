@@ -1,12 +1,12 @@
 import {SmartPlug} from '../../shared/SmartPlug.model';
 import {AppState} from '../../store/app.reducers';
 import {
-  ADD_SMART_PLUG,
-  DELETE_SMART_PLUG,
-  SET_SMART_PLUGS,
-  SET_SMART_PLUG,
-  UPDATE_SMART_PLUG,
   SmartPlugActions,
+  ADD_NEW_SMART_PLUG_SUCCESS,
+  DELETE_SMART_PLUG,
+  SET_SMART_PLUG,
+  SET_SMART_PLUGS,
+  UPDATE_SMART_PLUG,
 } from './smart-plug.actions';
 
 export interface SmartPlugFeatureState extends AppState {
@@ -14,11 +14,13 @@ export interface SmartPlugFeatureState extends AppState {
 }
 
 export interface State {
-  smartPlugs: SmartPlug[]
+  smartPlugs: SmartPlug[],
+  addedNew: boolean,
 }
 
 const initialState: State = {
-  smartPlugs: []
+  smartPlugs: [],
+  addedNew: false
 };
 
 export function smartPlugReducer(state = initialState, action: SmartPlugActions) {
@@ -44,7 +46,11 @@ export function smartPlugReducer(state = initialState, action: SmartPlugActions)
         ...state,
         smartPlugs: smartPlugs
       };
-    case ADD_SMART_PLUG:
+    case ADD_NEW_SMART_PLUG_SUCCESS:
+      return {
+        ...state,
+        addedNew: true
+      }
     case UPDATE_SMART_PLUG:
     case DELETE_SMART_PLUG:
     default:

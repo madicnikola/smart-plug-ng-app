@@ -4,16 +4,15 @@ import {SmartPlugsComponent} from './smart-plugs.component';
 import {SmartPlugStartComponent} from './smart-plug-start/smart-plug-start.component';
 import {SmartPlugAddComponent} from './smart-plug-add/smart-plug-add.component';
 import {SmartPlugDetailsComponent} from './smart-plug-details/smart-plug-details.component';
-import {SmartPlugEditComponent} from './smart-plug-edit/smart-plug-edit.component';
+import {AuthGuard} from "../auth/auth-guard.service";
 
 const smartPlugsRoutes: Routes = [
   {
     path: '', component: SmartPlugsComponent,
     children: [
       {path: '', component: SmartPlugStartComponent},
-      {path: 'new', component: SmartPlugAddComponent},
+      {path: 'new', component: SmartPlugAddComponent, canActivate: [AuthGuard]},
       {path: ':id', component: SmartPlugDetailsComponent},
-      {path: ':id/edit', component: SmartPlugEditComponent},
     ]
   },
 ];
