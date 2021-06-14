@@ -1,1 +1,21 @@
-<p>user-acc works!</p>
+<div class="cotainer">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onChangePassword(f)" #f="ngForm">
+        <div class="form-group">
+          <label for="currentPassword">Current password:</label>
+          <input type="password" id="currentPassword" name="currentPassword" ngModel="" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="newPassword">New password:</label>
+          <input type="password" id="newPassword" name="newPassword" ngModel="" class="form-control">
+        </div>
+        <button class="btn btn-primary" type="submit">Change</button>
+      </form>
+<!--      <div *ngIf="(userState | async).changeSuccess">-->
+<!--        <hr>-->
+<!--        {{(userState | async).responseMessage}}-->
+<!--      </div>-->
+    </div>
+  </div>
+</div>

@@ -12,8 +12,11 @@ import {AuthEffects} from './auth/store/auth.effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import {SharedModule} from './shared/shared.module';
-import {CoreModule} from './core/core,module';
+import {CoreModule} from './core/core.module';
 import {UserModule} from './user/user.module';
+import {FormsModule} from '@angular/forms';
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,9 +30,12 @@ import {UserModule} from './user/user.module';
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
+    FormsModule,
+    BrowserAnimationsModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AuthEffects]),
     StoreRouterConnectingModule.forRoot(),
+    ToastrModule.forRoot(),
     StoreDevtoolsModule.instrument({logOnly: true}),
   ],
   bootstrap: [AppComponent]
